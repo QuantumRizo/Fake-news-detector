@@ -8,10 +8,10 @@ import numpy as np
 import pickle
 
 # --- Load model and tokenizer ---
-model = load_model('/home/david/projects/fake_news_detector/saved_models/fake_news_model.h5')
+model = load_model('saved_models/fake_news_model.h5')
 
 # Load your tokenizer (make sure you saved it during training)
-with open('/home/david/projects/fake_news_detector/saved_models/tokenizer.pkl', 'rb') as f:
+with open('saved_models/tokenizer.pkl', 'rb') as f:
     tokenizer = pickle.load(f)
 
 max_len = 500  # same as during training

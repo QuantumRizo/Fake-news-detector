@@ -12,7 +12,7 @@ st.title("📰 Fake News Detector")
 st.markdown("### by David Rizz")
 
 # Image (local or URL)
-st.image("path/to/your/image.png", width=150)  # Adjust the width as needed
+st.image("pombo.jpg", width=150)  # Adjust the width as needed
 
 # Text input
 user_input = st.text_area("Enter a news article or headline:")

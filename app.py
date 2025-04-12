@@ -46,7 +46,3 @@ with col1:
             st.success(f"**Prediction:** {label} ({conf*100:.2f}% confidence)")
         else:
             st.warning("Please enter some text to analyze.")
-
-with col2:
-    if st.button("Clear"):
-        st.session_state.input_area = ""  

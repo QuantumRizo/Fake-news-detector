@@ -8,7 +8,7 @@ import numpy as np
 import pickle
 
 # --- Load model and tokenizer ---
-model = load_model('saved_models/fake_news_model.h5')
+model = load_model('saved_models/fake_news_model.keras')
 
 # Load your tokenizer (make sure you saved it during training)
 with open('saved_models/tokenizer.pkl', 'rb') as f:
@@ -26,13 +26,27 @@ def predict_news(news_text):
     return label, confidence
 
 # --- Streamlit UI ---
-st.title("📰 Fake News Detector by David Rizz")
+st.title("📰 Fake News Detector")
+st.caption("by David Rizz")
 
-user_input = st.text_area("Paste your news article here:")
+# Inicializar el estado del input si no existe
+if "user_input" not in st.session_state:
+    st.session_state.user_input = ""
 
-if st.button("Analyze"):
-    if user_input.strip():
-        label, conf = predict_news(user_input)
-        st.success(f"**Prediction:** {label} ({conf*100:.2f}% confidence)")
-    else:
-        st.warning("Please enter some text to analyze.")
+# Cuadro de texto controlado por session_state
+user_input = st.text_area("Paste your news article here:", value=st.session_state.user_input, key="input_area")
+
+# Botones en dos columnas: Analyze y Clear
+col1, col2 = st.columns([1, 1])
+
+with col1:
+    if st.button("Analyze"):
+        if user_input.strip():
+            label, conf = predict_news(user_input)
+            st.success(f"**Prediction:** {label} ({conf*100:.2f}% confidence)")
+        else:
+            st.warning("Please enter some text to analyze.")
+
+with col2:
+    if st.button("Clear"):
+        st.session_state.input_area = ""  

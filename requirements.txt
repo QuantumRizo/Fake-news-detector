@@ -1,7 +1,9 @@
-tensorflow
-numpy
-pandas
+streamlit
 scikit-learn
+joblib
+pandas
+numpy
 matplotlib
 seaborn
-streamlit
+wordcloud
+nltk

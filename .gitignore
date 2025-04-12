@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model files
+*.h5
+*.pkl
+
+# Datasets
+*.csv
+/data/
+
+# Streamlit config
+.streamlit/

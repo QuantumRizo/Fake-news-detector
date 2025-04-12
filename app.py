@@ -5,8 +5,16 @@ import joblib
 model = joblib.load('saved_models/nb_model.pkl')
 vectorizer = joblib.load('saved_models/vectorizer.pkl')
 
-# Streamlit UI
+# Title
 st.title("📰 Fake News Detector")
+
+# Subtitle
+st.markdown("### by David Rizz")
+
+# Image (local or URL)
+st.image("path/to/your/image.png", width=150)  # Adjust the width as needed
+
+# Text input
 user_input = st.text_area("Enter a news article or headline:")
 
 if st.button("Predict"):
